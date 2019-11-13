@@ -22,8 +22,20 @@ export default class Filter extends Component {
 
   render() {
     const { switchEarliest } = this.state;
-    const { filteredData, orders } = this.props;
-    const data = filteredData.length ? filteredData : orders;
+    const { orders, filtered, filterInput } = this.props;
+    const id = parseInt(filterInput);
+    const filteredData = orders.filter(data => {
+      if (id) {
+        return data.workerId === id;
+      } else if (typeof filterInput === 'string') {
+        const dataName = data.details.name.toLowerCase();
+        const itemName = filterInput.toLowerCase();
+        return dataName.includes(itemName)
+      }
+      return null;
+    })
+
+    const data = filtered ? filteredData : orders;
 
     if (switchEarliest) {
       data.sort((a, b) => a.deadline < b.deadline ? -1 : 1)

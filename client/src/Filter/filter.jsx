@@ -2,8 +2,14 @@ import React from 'react';
 import './filter.scss';
 
 const Filter = props => {
+  const { toggleFiltered, handleFilter } = props;
   const handleInput = e => {
-    props.handleFilter(e.target.value);
+    if (e.target.value) {
+      toggleFiltered(true);
+      handleFilter(e.target.value);
+    } else {
+      toggleFiltered(false);
+    }
   }
 
   return (

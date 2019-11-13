@@ -9,7 +9,8 @@ export default class App extends Component {
 
     this.state = {
       orders: [],
-      filteredData: [],
+      filterInput: '',
+      filtered: false,
     }
   }
 
@@ -55,24 +56,20 @@ export default class App extends Component {
       })
   }
 
-  handleFilter = info => {
-    const id = parseInt(info);
-    const filteredData = this.state.orders.filter(data => {
-      if (id) {
-        return data.workerId === id;
-      } else if (typeof info === 'string') {
-        const dataName = data.details.name.toLowerCase();
-        const itemName = info.toLowerCase();
-        return dataName.includes(itemName);  
-      }
-      return;
-    })
-    
-    this.setState({ filteredData });
+  handleFilter = filterInput => {
+    this.setState({ filterInput });
+  }
+
+  toggleFiltered = bool  => {
+    if (bool) {
+      this.setState({ filtered: true });
+    } else {
+      this.setState({ filtered: false });
+    }
   }
 
   render() {
-    const { orders, filteredData } = this.state;
+    const { orders, filterInput, filtered } = this.state;
     return (
       orders ? (
         <Fragment>
@@ -80,12 +77,15 @@ export default class App extends Component {
             <Filter
               orders={orders}
               handleFilter={this.handleFilter}
+              filtered={filtered}
+              toggleFiltered={this.toggleFiltered}
             />
           </div>
           <div className="main">
             <Main
               orders={orders}
-              filteredData={filteredData}
+              filtered={filtered}
+              filterInput={filterInput}
             />
           </div>
         </Fragment> 
