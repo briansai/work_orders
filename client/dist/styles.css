@@ -1,0 +1,53 @@
+.filter {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center; }
+  .filter input {
+    height: 40px;
+    width: 80%; }
+
+.switch {
+  text-align: center;
+  margin: 20px; }
+  .switch .switch-font {
+    font-size: 1.25rem;
+    margin: 10px; }
+
+.main-container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 400px);
+  grid-gap: 50px;
+  padding: 20px 200px;
+  justify-content: space-evenly; }
+  .main-container .item-container {
+    border: solid black 1px;
+    padding: 10px;
+    width: 375px;
+    height: 220px;
+    position: relative; }
+    .main-container .item-container .name {
+      text-align: center;
+      margin-bottom: 10px; }
+    .main-container .item-container .description {
+      padding: 0 40px; }
+    .main-container .item-container .worker {
+      width: 100%;
+      position: absolute;
+      bottom: 5px;
+      display: flex; }
+      .main-container .item-container .worker .image {
+        padding-top: 10px;
+        padding-left: 3%; }
+        .main-container .item-container .worker .image img {
+          width: 100px;
+          border-radius: 50%; }
+      .main-container .item-container .worker .info {
+        margin-top: 5%;
+        margin-left: 5%;
+        position: relative; }
+        .main-container .item-container .worker .info .timestamp {
+          font-size: 12px;
+          position: absolute;
+          bottom: 5px; }
+

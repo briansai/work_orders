@@ -1,0 +1,6 @@
+{
+  "install": "npm install",
+  "build": "webpack -d --watch --progress",
+  "run": "npm run start",
+  "port": 3000
+ }
