@@ -8,7 +8,7 @@
 
 This project was done accordingly for an online assessment and replaced their APIs with generated pseudo-data. The project utilizes React as the frontend framework and SASS as the CSS preprocessor.  Express is used as the application framework and Node as the backend server-side scriptor.
 
-## Install Node
+## Install Node for Mac
 ```
   brew update
   brew install node
